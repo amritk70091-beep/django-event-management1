@@ -1,44 +1,37 @@
 from django import forms
-from django.contrib.auth.models import User
+
+from .models import Event, EventImage, EventAgenda
 
 
-class LoginForm(forms.Form):
-    username = forms.CharField(widget=forms.TextInput(attrs={
-        'class': 'form-control',
-        'type': 'text',
-        'placeholder': 'Username'
-    }))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={
-        'class': 'form-control',
-        'placeholder': 'Password'
-    }))
+class EventForm(forms.ModelForm):
 
-
-class RegisterForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput(attrs={
-        'class': 'form-control',
-        'placeholder': 'Password'
-    }))
-    confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={
-        'class': 'form-control',
-        'placeholder': 'Confirm Password'
-    }))
 
     class Meta:
-        model = User
-        fields = ['username', 'email', 'first_name', 'last_name']
+        model = Event
+        fields = ['category', 'name', 'uid', 'description', 'job_category', 'scheduled_status', 'venue', 'start_date', 'end_date', 'location', 'points', 'maximum_attende', 'status']
         widgets = {
-            'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
-            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}),
+            'start_date': forms.TextInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'end_date': forms.TextInput(attrs={'class': 'form-control', 'type': 'date'}),
         }
 
-    def clean_confirm_password(self):
-        password = self.cleaned_data.get('password')
-        confirm_password = self.cleaned_data.get('confirm_password')
-        
-        if password and confirm_password and password != confirm_password:
-            raise forms.ValidationError("Passwords don't match")
-        
-        return confirm_password
+
+class EventImageForm(forms.ModelForm):
+
+
+    class Meta:
+        model = EventImage
+        fields = ['image']
+
+
+
+class EventAgendaForm(forms.ModelForm):
+
+
+    class Meta:
+        model = EventAgenda
+        fields = ['session_name', 'speaker_name', 'start_time', 'end_time', 'venue_name']
+
+        widgets = {
+            'start_time': forms.TextInput(attrs={'class': 'form-control', 'type': 'time'}),
+            'end_time': forms.TextInput(attrs={'class': 'form-control', 'type': 'time'}),
+        }
