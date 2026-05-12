@@ -1,4 +1,4 @@
-Event Management System Using Django
+##Event Management System Using Django
 📌 Introduction
 
 The Event Management System is a web-based application developed using the Python Django framework.
