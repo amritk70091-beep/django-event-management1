@@ -41,20 +41,35 @@ The system provides a user-friendly interface where users can explore upcoming e
 ✅ Authentication & Security
 
 ## **Technologies Used**
-Backend
+
+### Backend
+
 Python
+
 Django
-Frontend
+
+### Frontend
+
 HTML
+
 CSS
+
 Bootstrap
+
 JavaScript
-Database
+
+### Database
+
 SQLite
-AI/NLP Libraries
+
+### AI/NLP Libraries
+
 NLTK
+
 spaCy
+
 Scikit-learn
+
 PyPDF2
 
 
