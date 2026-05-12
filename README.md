@@ -1,14 +1,52 @@
-# Django Event Management System.
+Event Management System Using Django
+📌 Introduction
 
-## How To Setup On Linux
-1. Clone This Project `git clone https://github.com/sajib1066/django-event-management.git`
-2. Go to Project Directory `cd django-event-management`
-3. Create a Virtual Environment `python3 -m venv env`
-4. Activate Virtual Environment `source env/bin/activate`
-5. Install Requirements Package `pip install -r requirements.txt`
-6. Migrate Database `python manage.py migrate`
-7. Create Super User `python manage.py createsuperuser`
-8. Finally Run The Project `python manage.py runserver`
+The Event Management System is a web-based application developed using the Python Django framework.
+This project helps users easily view and register for events online, while the admin can manage all event-related activities from a single dashboard.
 
-## Preview
-![event-management](https://user-images.githubusercontent.com/39632170/88448650-d641af80-ce61-11ea-85e1-dc256d1e8155.png)
+The main purpose of this system is to simplify the process of:
+
+Creating events
+Managing registrations
+Organizing event details
+Tracking participants
+
+This project is useful for:
+
+Colleges
+Companies
+Seminar organizers
+Wedding/Event planners
+Workshops & conferences
+
+The system provides a user-friendly interface where users can explore upcoming events and register quickly.
+
+Main Features of the Project
+
+✅ User Registration & Login
+✅ View Events
+✅ Event Registration
+✅ Responsive Professional UI
+✅ Admin Dashboard
+✅ Add/Edit/Delete Events
+✅ Manage Registered Users
+✅ Authentication & Security
+
+Technologies Used
+Backend
+Python
+Django
+Frontend
+HTML
+CSS
+Bootstrap
+JavaScript
+Database
+SQLite
+AI/NLP Libraries
+NLTK
+spaCy
+Scikit-learn
+PyPDF2
+
+
