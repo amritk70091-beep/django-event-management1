@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Edit User: {{ object.username }}</h3>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="card-body">
+            {{ form.as_p }}
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Update User</button>
+            <a href="{% url 'user-list' %}" class="btn btn-default">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

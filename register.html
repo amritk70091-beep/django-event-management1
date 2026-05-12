@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  {% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 3 | Register</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% include 'base/header.html' %}
+  <style>
+  /* Targets both the html and the register-page class */
+  html, body.register-page {
+    background: url("{% static 'img/Blog-banner-5-C-of-event-management.png' %}") no-repeat center center fixed !important;
+    background-size: cover !important;
+    height: 100vh !important;
+    margin: 0;
+  }
+/* ... keep your existing background code ... */
+
+  /* Targets the "AdminRegister" text specifically */
+  .register-logo a {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds a shadow so it's readable on light backgrounds */
+  }
+
+  /* Changes the color when you hover over it */
+  .register-logo a:hover {
+    color: #f8f9fa !important;
+  }
+  /* Makes the registration card semi-transparent and clean */
+  .register-box {
+    margin-top: 2%; /* Adjusts position since register boxes are taller */
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(8px); /* Optional: Frosted glass effect */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+</style>
+  <!-- Font Awesome -->
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition register-page">
+<div class="register-box">
+  <div class="register-logo">
+    <a href="#"><b>Admin</b>Register</a>
+  </div>
+
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg">Register a new membership</p>
+
+      <form action="" method="post">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+          <div class="alert alert-danger">
+            {% for error in form.non_field_errors %}
+              {{ error }}
+            {% endfor %}
+          </div>
+        {% endif %}
+        
+        <div class="input-group mb-3">
+          {{ form.username }}
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+          {% if form.username.errors %}
+            <div class="text-danger">
+              {{ form.username.errors.0 }}
+            </div>
+          {% endif %}
+        </div>
+        
+        <div class="input-group mb-3">
+          {{ form.email }}
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+          {% if form.email.errors %}
+            <div class="text-danger">
+              {{ form.email.errors.0 }}
+            </div>
+          {% endif %}
+        </div>
+        
+        <div class="input-group mb-3">
+          {{ form.first_name }}
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+          {% if form.first_name.errors %}
+            <div class="text-danger">
+              {{ form.first_name.errors.0 }}
+            </div>
+          {% endif %}
+        </div>
+        
+        <div class="input-group mb-3">
+          {{ form.last_name }}
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+          {% if form.last_name.errors %}
+            <div class="text-danger">
+              {{ form.last_name.errors.0 }}
+            </div>
+          {% endif %}
+        </div>
+        
+        <div class="input-group mb-3">
+          {{ form.password }}
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+          {% if form.password.errors %}
+            <div class="text-danger">
+              {{ form.password.errors.0 }}
+            </div>
+          {% endif %}
+        </div>
+        
+        <div class="input-group mb-3">
+          {{ form.confirm_password }}
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+          {% if form.confirm_password.errors %}
+            <div class="text-danger">
+              {{ form.confirm_password.errors.0 }}
+            </div>
+          {% endif %}
+        </div>
+        
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+              <label for="agreeTerms">
+               I agree to the <a href="#">terms</a>
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+      <div class="social-auth-links text-center">
+        <p>- OR -</p>
+        <a href="#" class="btn btn-block btn-primary">
+          <i class="fab fa-facebook mr-2"></i>
+          Sign up using Facebook
+        </a>
+        <a href="#" class="btn btn-block btn-danger">
+          <i class="fab fa-google-plus mr-2"></i>
+          Sign up using Google+
+        </a>
+      </div>
+
+      <a href="{% url 'login' %}" class="text-center">I already have a membership</a>
+    </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
+
+{% include 'base/js.html' %}
+
+</body>
+</html>

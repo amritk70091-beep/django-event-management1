@@ -1,0 +1,46 @@
+{% load static %}
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+<!-- overlayScrollbars -->
+<link rel="stylesheet" href="{% static 'plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}">
+<!-- Theme style -->
+<link rel="stylesheet" href="{% static 'css/adminlte.min.css' %}">
+
+<!-- Google Font: Source Sans Pro -->
+<!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> -->
+
+<!-- Adding Custom Font -->
+<style>
+    @font-face { font-family: JuneBug; src: url({% static 'fonts/Minion-Regular.ttf' %}); }
+    h1, h2, p, a, b {
+       font-family: Minion-Regular
+    }
+
+    /* --- LAYOUT FIXES START HERE --- */
+
+    /* 1. Make the blue navbar slimmer */
+    .main-header {
+      height: 45px !important;
+      min-height: 45px !important;
+      padding: 0 !important;
+    }
+
+    /* 2. Fix vertical alignment for icons & logout text in the slim bar */
+    .main-header .nav-link {
+      height: 45px !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+
+    /* 3. SHIFT CONTENT DOWN: This stops the blue bar from hiding "Dashboard" */
+    /* Because you use layout-navbar-fixed, we must add a top margin */
+    .content-wrapper {
+      margin-top: 45px !important;
+    }
+
+    /* 4. Ensure the breadcrumbs and title have nice spacing */
+    .content-header {
+      padding: 15px 0.5rem !important;
+    }
+</style>
